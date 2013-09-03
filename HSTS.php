@@ -31,7 +31,7 @@ $wgExtensionCredits['other'][] = array(
         'author' => 'Seb35',
         'version' => '0.1',
         'url' => 'https://www.mediawiki.org/wiki/Extension:HSTS',
-        'descriptionmsg' => 'hsts-ext-desc',
+        'descriptionmsg' => 'hsts-desc',
 );
  
 $dir = dirname( __FILE__ ) . '/';
