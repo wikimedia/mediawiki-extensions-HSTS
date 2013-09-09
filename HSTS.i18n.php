@@ -100,6 +100,14 @@ $messages['pt-br'] = array(
 	'hsts-tog' => 'Ativar HTTP Strict Transport Security (HSTS)',
 );
 
+/** Swedish (svenska)
+ * @author Skalman
+ */
+$messages['sv'] = array(
+	'hsts-desc' => 'HSTS (HTTP Strict Transport Security) på en per-användare-basis',
+	'hsts-tog' => 'Aktivera HTTP Strict Transport Security (HSTS)',
+);
+
 /** Ukrainian (українська)
  * @author Andriykopanytsia
  */
