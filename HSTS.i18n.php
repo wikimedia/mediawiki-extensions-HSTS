@@ -36,6 +36,14 @@ $messages['de'] = array(
 	'hsts-tog' => 'HTTP Strict Transport Security (HSTS) aktivieren',
 );
 
+/** Spanish (español)
+ * @author Fitoschido
+ */
+$messages['es'] = array(
+	'hsts-desc' => "HSTS (''HTTP Strict Transport Security'') en función de cada usuario",
+	'hsts-tog' => 'Activar el modo de seguridad de transporte estricta de HTTP (HSTS)',
+);
+
 /** French (français)
  * @author Seb35
  */
@@ -114,6 +122,14 @@ $messages['sv'] = array(
 $messages['uk'] = array(
 	'hsts-desc' => 'HSTS (HTTP Строга Безпека Передачі) на рівні користувача',
 	'hsts-tog' => 'Увімкнути HTTP строгу безпеку передачі (HSTS)',
+);
+
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'hsts-desc' => 'HSTS (HTTP Strict Transport Security) אויף א באניצער־באזיס',
+	'hsts-tog' => 'אקטיווירן HTTP Strict Transport Security (HSTS)',
 );
 
 /** Simplified Chinese (中文（简体）‎)
