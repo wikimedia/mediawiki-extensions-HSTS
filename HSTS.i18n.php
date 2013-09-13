@@ -108,6 +108,14 @@ $messages['pt-br'] = array(
 	'hsts-tog' => 'Ativar HTTP Strict Transport Security (HSTS)',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'hsts-desc' => "HSTS (HTTP Securezze de Trasporte Strette) sus a 'nu punde base de utende",
+	'hsts-tog' => 'Abbilite HQQQP Securezze de Trasporte Strette (HSTS)',
+);
+
 /** Swedish (svenska)
  * @author Skalman
  */
