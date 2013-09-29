@@ -116,6 +116,14 @@ $messages['roa-tara'] = array(
 	'hsts-tog' => 'Abbilite HQQQP Securezze de Trasporte Strette (HSTS)',
 );
 
+/** Russian (русский)
+ * @author Okras
+ */
+$messages['ru'] = array(
+	'hsts-desc' => 'HSTS (HTTP Strict Transport Security) на уровне пользователя',
+	'hsts-tog' => 'Включить HTTP Strict Transport Security (HSTS)',
+);
+
 /** Swedish (svenska)
  * @author Skalman
  */
