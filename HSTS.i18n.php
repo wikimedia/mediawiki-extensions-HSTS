@@ -68,6 +68,14 @@ $messages['he'] = array(
 	'hsts-tog' => 'הפעלת HTTP Strict Transport Security‏ (HSTS)',
 );
 
+/** Italian (italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'hsts-desc' => 'HSTS (HTTP Strict Transport Security) per singolo utente',
+	'hsts-tog' => 'Abilita HTTP Strict Transport Security (HSTS)',
+);
+
 /** Japanese (日本語)
  * @author Shirayuki
  */
