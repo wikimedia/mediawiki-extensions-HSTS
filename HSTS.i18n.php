@@ -100,6 +100,14 @@ $messages['mk'] = array(
 	'hsts-tog' => 'Вклучи Строга преносна безбедност во HTTP (HSTS)',
 );
 
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
+$messages['nl'] = array(
+	'hsts-desc' => 'HSTS (HTTP Strict Transport Security) per gebruiker',
+	'hsts-tog' => 'HTTP Strict Transport Security (HSTS) inschakelen',
+);
+
 /** Occitan (occitan)
  * @author Cedric31
  */
