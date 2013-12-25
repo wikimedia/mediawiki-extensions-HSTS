@@ -68,6 +68,14 @@ $messages['he'] = array(
 	'hsts-tog' => 'הפעלת HTTP Strict Transport Security‏ (HSTS)',
 );
 
+/** Upper Sorbian (hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'hsts-desc' => 'HSTS (HTTP Strict Transport Security) na wužiwarskej bazy',
+	'hsts-tog' => 'HTTP Strict Transport Security (HSTS) zmóžnić',
+);
+
 /** Italian (italiano)
  * @author Beta16
  */
