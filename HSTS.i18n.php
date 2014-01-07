@@ -44,6 +44,14 @@ $messages['es'] = array(
 	'hsts-tog' => 'Activar el modo de seguridad de transporte estricta de HTTP (HSTS)',
 );
 
+/** Persian (فارسی)
+ * @author Armin1392
+ */
+$messages['fa'] = array(
+	'hsts-desc' => 'اچ‌اس‌تی‌اس (امنیت نقل و انتقال سخت اچ‌تی‌تی‌پی) بر اساس هر کاربر',
+	'hsts-tog' => 'فعال کردن امنیت نقل و انتقال سخت (اچ‌تی‌تی‌پی)',
+);
+
 /** French (français)
  * @author Seb35
  */
