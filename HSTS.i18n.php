@@ -100,6 +100,14 @@ $messages['ja'] = array(
 	'hsts-tog' => 'HTTP Strict Transport Security (HSTS) を有効にする',
 );
 
+/** Korean (한국어)
+ * @author Priviet
+ */
+$messages['ko'] = array(
+	'hsts-desc' => '사용자 설정에 기반한 HSTS(HTTP Strict Transport Security)',
+	'hsts-tog' => 'HSTS(HTTP Strict Transport Security)를 활성화',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
