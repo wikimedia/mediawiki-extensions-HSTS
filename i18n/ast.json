@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Xuacu"
+        ]
+    },
+    "hsts-desc": "HSTS (HTTP Strict Transport Security) activáu pol usuariu",
+    "hsts-tog": "Activar HTTP Strict Transport Security (HSTS)"
+}

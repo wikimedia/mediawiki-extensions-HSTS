@@ -1,17 +1,17 @@
 <?php
- 
+
 /**
  * Extension enabling the HSTS on a MediaWiki website on a per-user basis
- * 
+ *
  * Note if you intend to activate HSTS on the whole website, it will be more efficient and robust
  * to add it directly in the server configuration
- * 
+ *
  * @file
  * @ingroup Extensions
  * @author Seb35
  * @licence WTFPL 2.0
  * /
- 
+
 /* Options */
 $wgDefaultUserOptions['hsts'] = 0; // Default value of HSTS for anonymous visitors and newly created accounts
 $wgHSTSMaxAge = 30*86400;          // max-age parameter for HSTS; can be either:
@@ -21,28 +21,29 @@ $wgHSTSMaxAge = 30*86400;          // max-age parameter for HSTS; can be either:
                                    //  configure accordingly your cache servers for a consistent user experience,
                                    //  particularly given the authoritative HSTS header is the last sent, even if shorter.
 $wgHSTSIncludeSubdomains = false;  // includeSubDomains parameter for HSTS; boolean
- 
- 
+
+
 /* Register hooks */
- 
+
 $wgExtensionCredits['other'][] = array(
         'path' => __FILE__,
         'name' => 'HSTS',
         'author' => 'Seb35',
-        'version' => '0.1',
+        'version' => '0.2.0',
         'url' => 'https://www.mediawiki.org/wiki/Extension:HSTS',
         'descriptionmsg' => 'hsts-desc',
 );
- 
+
 $dir = dirname( __FILE__ ) . '/';
+$wgMessagesDirs['HSTS'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['HSTS'] = $dir . 'HSTS.i18n.php';
- 
+
 $wgHooks['GetPreferences'][] = 'HSTSPreference';
 $wgHooks['BeforePageDisplay'][] = 'HSTSAddHeader';
- 
- 
+
+
 /* Code */
- 
+
 function HSTSPreference( $user, &$preferences ) {
         $preferences['hsts'] = array(
                 'type' => 'toggle',
@@ -51,7 +52,7 @@ function HSTSPreference( $user, &$preferences ) {
         );
         return true;
 }
- 
+
 function HSTSAddHeader( $output ) {
         global $wgHSTSIncludeSubdomains, $wgHSTSMaxAge;
         if( $output->getRequest()->detectProtocol() != 'https' || !$output->getUser()->getOption( 'hsts' ) ) return true;

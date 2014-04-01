@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Siebrand"
+        ]
+    },
+    "hsts-desc": "HSTS (HTTP Strict Transport Security) per gebruiker",
+    "hsts-tog": "HTTP Strict Transport Security (HSTS) inschakelen"
+}

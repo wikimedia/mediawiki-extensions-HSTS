@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Seb35"
+        ]
+    },
+    "hsts-desc": "HSTS (HTTP Strict Transport Security) configurable par utilisateur",
+    "hsts-tog": "Activer HTTP Strict Transport Security (HSTS)"
+}

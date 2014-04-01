@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Andriykopanytsia"
+        ]
+    },
+    "hsts-desc": "HSTS (HTTP Строга Безпека Передачі) на рівні користувача",
+    "hsts-tog": "Увімкнути HTTP строгу безпеку передачі (HSTS)"
+}

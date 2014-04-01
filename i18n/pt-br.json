@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Fúlvio"
+        ]
+    },
+    "hsts-desc": "HSTS (HTTP Strict Transport Security) em uma base por usuário",
+    "hsts-tog": "Ativar HTTP Strict Transport Security (HSTS)"
+}

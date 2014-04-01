@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Shirayuki"
+        ]
+    },
+    "hsts-desc": "HSTS (HTTP Strict Transport Security) を、利用者の個人設定に応じて有効にする",
+    "hsts-tog": "HTTP Strict Transport Security (HSTS) を有効にする"
+}

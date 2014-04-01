@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Toliño"
+        ]
+    },
+    "hsts-desc": "Mecanismo HSTS (HTTP Strict Transport Security) activable a nivel de cada usuario",
+    "hsts-tog": "Activar o mecanismo HTTP Strict Transport Security (HSTS)"
+}
