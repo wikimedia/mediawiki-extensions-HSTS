@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Qiyue2001"
-        ]
-    },
-    "hsts-desc": "根据个人设置启用HSTS（HTTP 严格传输安全）",
-    "hsts-tog": "启用 HTTP 严格传输安全（HSTS）"
+	"@metadata": {
+		"authors": [
+			"Qiyue2001"
+		]
+	},
+	"hsts-desc": "根据个人设置启用HSTS（HTTP 严格传输安全）",
+	"hsts-tog": "启用 HTTP 严格传输安全（HSTS）"
 }

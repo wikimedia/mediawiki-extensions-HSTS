@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Metalhead64"
-        ]
-    },
-    "hsts-desc": "HSTS (HTTP Strict Transport Security) auf Benutzerbasis",
-    "hsts-tog": "HTTP Strict Transport Security (HSTS) aktivieren"
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"hsts-desc": "HSTS (HTTP Strict Transport Security) auf Benutzerbasis",
+	"hsts-tog": "HTTP Strict Transport Security (HSTS) aktivieren"
 }

@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Amire80"
-        ]
-    },
-    "hsts-desc": "הפעלת HSTS (HTTP Strict Transport Security)‎ ברמת משתמשים פרטניים",
-    "hsts-tog": "הפעלת HTTP Strict Transport Security‏ (HSTS)"
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"hsts-desc": "הפעלת HSTS (HTTP Strict Transport Security)‎ ברמת משתמשים פרטניים",
+	"hsts-tog": "הפעלת HTTP Strict Transport Security‏ (HSTS)"
 }

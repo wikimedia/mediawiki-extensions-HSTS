@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Beta16"
-        ]
-    },
-    "hsts-desc": "HSTS (HTTP Strict Transport Security) per singolo utente",
-    "hsts-tog": "Abilita HTTP Strict Transport Security (HSTS)"
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"hsts-desc": "HSTS (HTTP Strict Transport Security) per singolo utente",
+	"hsts-tog": "Abilita HTTP Strict Transport Security (HSTS)"
 }

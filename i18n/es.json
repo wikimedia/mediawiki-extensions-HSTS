@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Fitoschido"
-        ]
-    },
-    "hsts-desc": "HSTS (''HTTP Strict Transport Security'') en función de cada usuario",
-    "hsts-tog": "Activar el modo de seguridad de transporte estricta de HTTP (HSTS)"
+	"@metadata": {
+		"authors": [
+			"Fitoschido"
+		]
+	},
+	"hsts-desc": "HSTS (''HTTP Strict Transport Security'') en función de cada usuario",
+	"hsts-tog": "Activar el modo de seguridad de transporte estricta de HTTP (HSTS)"
 }

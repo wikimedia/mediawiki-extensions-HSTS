@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Okras"
-        ]
-    },
-    "hsts-desc": "HSTS (HTTP Strict Transport Security) на уровне пользователя",
-    "hsts-tog": "Включить HTTP Strict Transport Security (HSTS)"
+	"@metadata": {
+		"authors": [
+			"Okras"
+		]
+	},
+	"hsts-desc": "HSTS (HTTP Strict Transport Security) на уровне пользователя",
+	"hsts-tog": "Включить HTTP Strict Transport Security (HSTS)"
 }

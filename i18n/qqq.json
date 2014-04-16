@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Seb35",
-            "Shirayuki"
-        ]
-    },
-    "hsts-desc": "{{desc|name=HSTS|url=//www.mediawiki.org/wiki/Extension:HSTS}}",
-    "hsts-tog": "Used in [[Special:Preferences]].\n\nUsed as label for the checkbox which is used to enable HSTS."
+	"@metadata": {
+		"authors": [
+			"Seb35",
+			"Shirayuki"
+		]
+	},
+	"hsts-desc": "{{desc|name=HSTS|url=//www.mediawiki.org/wiki/Extension:HSTS}}",
+	"hsts-tog": "Used in [[Special:Preferences]].\n\nUsed as label for the checkbox which is used to enable HSTS."
 }

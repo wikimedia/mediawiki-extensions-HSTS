@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Priviet"
-        ]
-    },
-    "hsts-desc": "사용자 설정에 기반한 HSTS(HTTP Strict Transport Security)",
-    "hsts-tog": "HSTS(HTTP Strict Transport Security)를 활성화"
+	"@metadata": {
+		"authors": [
+			"Priviet"
+		]
+	},
+	"hsts-desc": "사용자 설정에 기반한 HSTS(HTTP Strict Transport Security)",
+	"hsts-tog": "HSTS(HTTP Strict Transport Security)를 활성화"
 }

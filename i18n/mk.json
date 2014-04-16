@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bjankuloski06"
-        ]
-    },
-    "hsts-desc": "HSTS (Строга преносна безбедност во HTTP) по корисник",
-    "hsts-tog": "Вклучи Строга преносна безбедност во HTTP (HSTS)"
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"hsts-desc": "HSTS (Строга преносна безбедност во HTTP) по корисник",
+	"hsts-tog": "Вклучи Строга преносна безбедност во HTTP (HSTS)"
 }
