@@ -6,5 +6,8 @@
 		]
 	},
 	"hsts-desc": "{{desc|name=HSTS|url=//www.mediawiki.org/wiki/Extension:HSTS}}",
-	"hsts-tog": "Used in [[Special:Preferences]].\n\nUsed as label for the checkbox which is used to enable HSTS."
+	"hsts-tog": "Used in [[Special:Preferences]].\n\nUsed as label for the checkbox which is used to enable HSTS.",
+	"hsts-tog": "Used in [[Special:Preferences]].\n\nUsed as label for the checkbox which is used to enable HSTS when the connection is HTTP and not HTTPS.",
+	"hsts-beta-feature-message": "Title of HSTS as a beta feature (BetaFeatures extension)",
+	"hsts-beta-feature-description": "Description of HSTS as a beta feature (BetaFeatures extension)"
 }

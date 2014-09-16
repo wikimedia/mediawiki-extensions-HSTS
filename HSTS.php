@@ -65,13 +65,20 @@ $wgHSTSIncludeSubdomains = false;
  */
 $wgDefaultUserOptions['hsts'] = 0;
 
+/**
+ * Enable HSTS as a Beta Feature (see BetaFeatures extension)
+ * If true, the beta feature will have precedence over the
+ * user preference, which will no more be visible.
+ */
+$wgHSTSBetaFeature = false;
+
 
 /** REGISTRATION */
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'HSTS',
 	'author' => 'Seb35',
-	'version' => '1.0.0',
+	'version' => '1.1.0',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:HSTS',
 	'descriptionmsg' => 'hsts-desc',
 );
@@ -81,7 +88,8 @@ $wgAutoloadClasses['HSTSExtension'] = __DIR__ . '/HSTS.php';
 $wgMessagesDirs['HSTS'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['HSTS'] = __DIR__ . '/HSTS.i18n.php';
 
-$wgHooks['GetPreferences'][] = 'HSTSExtension::preference';
+$wgHooks['GetPreferences'][] = 'HSTSExtension::getPreferences';
+$wgHooks['GetBetaFeaturePreferences'][] = 'HSTSExtension::getBetaFeaturePreferences';
 $wgHooks['BeforePageDisplay'][] = 'HSTSExtension::addHeader';
 
 
@@ -95,9 +103,12 @@ class HSTSExtension {
 	 * @var array $preferences Description of the preferences
 	 * @return true
 	 */
-	function preference( $user, &$preferences ) {
+	static function getPreferences( $user, &$preferences ) {
 
-		global $wgHSTSForUsers;
+		global $wgHSTSBetaFeature, $wgHSTSForUsers;
+
+		// If HSTS is activated as a Beta Feature, do not add it here
+		if( AutoLoader::loadClass( 'BetaFeatures' ) && $wgHSTSBetaFeature ) return true;
 
 		// If HSTS is mandatory, do not display the choice
 		if( $wgHSTSForUsers ) return true;
@@ -109,6 +120,43 @@ class HSTSExtension {
 			'section' => 'personal/info'
 		);
 
+		// Enable this preference only if we are on HTTPS
+		if( $user->getRequest()->detectProtocol() !== 'https' ) {
+
+			$preferences['hsts']['label-message'] = 'hsts-https-tog';
+			$preferences['hsts']['disabled'] = true;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Add the HSTS beta feature
+	 *
+	 * @var User $user Current user
+	 * @var array $preferences Description of the Beta Features
+	 * @return true
+	 *
+	 * @todo Add a screenshot (a padlock?)
+	 */
+	static function getBetaFeaturePreferences( $user, &$preferences ) {
+
+		global $wgHSTSBetaFeature, $wgHSTSForUsers;
+
+		// If HSTS is activated as a Beta Feature, do not add it here
+		if( !$wgHSTSBetaFeature ) return true;
+
+		// If HSTS is mandatory, do not display the choice
+		if( $wgHSTSForUsers ) return true;
+
+		$preferences['hsts'] = array(
+			'label-message' => 'hsts-beta-feature-message',
+			'desc-message' => 'hsts-beta-feature-description',
+			'info-link' => 'https://www.mediawiki.org/wiki/Extension:HSTS',
+			'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:HSTS',
+			'requirements' => array( 'betafeatures' => array( 'prefershttps' ) )
+		);
+
 		return true;
 	}
 
@@ -118,12 +166,12 @@ class HSTSExtension {
 	 * @var Output $output Output object
 	 * @return true
 	 */
-	function addHeader( $output ) {
+	static function addHeader( $output ) {
 
 		global $wgHSTSForAnons, $wgHSTSForUsers, $wgHSTSIncludeSubdomains, $wgHSTSMaxAge;
 
 		// Check if the user will get STS header
-		if( $output->getRequest()->detectProtocol() != 'https' ) return true;
+		if( $output->getRequest()->detectProtocol() !== 'https' ) return true;
 		if( $output->getUser()->isAnon() && !$wgHSTSForAnons ) return true;
 		if( $output->getUser()->isLoggedIn() && !$wgHSTSForUsers && !$output->getUser()->getOption('hsts') ) return true;
 
