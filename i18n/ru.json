@@ -5,5 +5,7 @@
 		]
 	},
 	"hsts-desc": "HSTS (HTTP Strict Transport Security) на уровне пользователя",
-	"hsts-tog": "Включить HTTP Strict Transport Security (HSTS)"
+	"hsts-tog": "Включить HTTP Strict Transport Security (HSTS)",
+	"hsts-https-tog": "Включить HTTP Strict Transport Security (HSTS)<br />Перезагрузите эту страницу с помощью протокола HTTPS, чтобы изменить эту настройку.",
+	"hsts-beta-feature-message": "Всегда использовать безопасное соединение"
 }

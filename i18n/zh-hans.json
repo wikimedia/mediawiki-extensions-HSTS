@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Qiyue2001"
+			"Qiyue2001",
+			"Liuxinyu970226"
 		]
 	},
 	"hsts-desc": "根据个人设置启用HSTS（HTTP 严格传输安全）",
-	"hsts-tog": "启用 HTTP 严格传输安全（HSTS）"
+	"hsts-tog": "启用 HTTP 严格传输安全（HSTS）",
+	"hsts-https-tog": "启用HTTP严格访问机制（HSTS）<br />通过HTTPS重新加载此页面以更改此选项。",
+	"hsts-beta-feature-message": "总是使用安全链接"
 }
