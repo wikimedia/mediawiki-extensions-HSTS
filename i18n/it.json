@@ -5,5 +5,7 @@
 		]
 	},
 	"hsts-desc": "HSTS (HTTP Strict Transport Security) per singolo utente",
-	"hsts-tog": "Abilita HTTP Strict Transport Security (HSTS)"
+	"hsts-tog": "Abilita HTTP Strict Transport Security (HSTS)",
+	"hsts-https-tog": "Attiva HTTP Strict Transport Security (HSTS)<br />Ricarica questa pagina con HTTPS per modificare questa preferenza.",
+	"hsts-beta-feature-message": "Usa sempre una connessione protetta"
 }
