@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Violetanka"
+		]
+	},
+	"hsts-https-tog": "HTTP sıkı Aktarım Katmanı Güvenliği(HSTS)'ni etkinleştir<br>Bu tercihi değiştirmek için HTTPS ile bu sayfayı yeniden yükleyin.",
+	"hsts-beta-feature-message": "Her zaman güvenli bağlantı kullan"
+}
