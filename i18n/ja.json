@@ -5,5 +5,6 @@
 		]
 	},
 	"hsts-desc": "HSTS (HTTP Strict Transport Security) を、利用者の個人設定に応じて有効にする",
-	"hsts-tog": "HTTP Strict Transport Security (HSTS) を有効にする"
+	"hsts-tog": "HTTP Strict Transport Security (HSTS) を有効にする",
+	"hsts-https-tog": "HTTP Strict Transport Security (HSTS) を有効にする<br />この設定を変更するには、このページを HTTPS で再読み込みしてください。"
 }
