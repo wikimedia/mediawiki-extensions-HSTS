@@ -17,7 +17,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is an extension to MediaWiki and thus not a valid entry point.' );
 }
 
-
 /**
  * CONFIGURATION
  * These variables may be overridden in LocalSettings.php after you include the
@@ -101,17 +100,20 @@ class HSTSExtension {
 	 *
 	 * @var User $user Current user
 	 * @var array $preferences Description of the preferences
-	 * @return true
+	 * @return bool true
 	 */
-	static function getPreferences( $user, &$preferences ) {
-
+	public static function getPreferences( $user, &$preferences ) {
 		global $wgHSTSBetaFeature, $wgHSTSForUsers;
 
 		// If HSTS is activated as a Beta Feature, do not add it here
-		if( AutoLoader::loadClass( 'BetaFeatures' ) && $wgHSTSBetaFeature ) return true;
+		if( AutoLoader::loadClass( 'BetaFeatures' ) && $wgHSTSBetaFeature ) {
+			return true;
+		}
 
 		// If HSTS is mandatory, do not display the choice
-		if( $wgHSTSForUsers ) return true;
+		if( $wgHSTSForUsers ) {
+			return true;
+		}
 
 		// Add the checkbox in the 'basic informations' section
 		$preferences['hsts'] = array(
@@ -122,7 +124,6 @@ class HSTSExtension {
 
 		// Enable this preference only if we are on HTTPS
 		if( $user->getRequest()->detectProtocol() !== 'https' ) {
-
 			$preferences['hsts']['label-message'] = 'hsts-https-tog';
 			$preferences['hsts']['disabled'] = true;
 		}
@@ -135,19 +136,22 @@ class HSTSExtension {
 	 *
 	 * @var User $user Current user
 	 * @var array $preferences Description of the Beta Features
-	 * @return true
+	 * @return bool true
 	 *
 	 * @todo Add a screenshot (a padlock?)
 	 */
-	static function getBetaFeaturePreferences( $user, &$preferences ) {
-
+	public static function getBetaFeaturePreferences( $user, &$preferences ) {
 		global $wgHSTSBetaFeature, $wgHSTSForUsers;
 
 		// If HSTS is activated as a Beta Feature, do not add it here
-		if( !$wgHSTSBetaFeature ) return true;
+		if( !$wgHSTSBetaFeature ) {
+			return true;
+		}
 
 		// If HSTS is mandatory, do not display the choice
-		if( $wgHSTSForUsers ) return true;
+		if( $wgHSTSForUsers ) {
+			return true;
+		}
 
 		$preferences['hsts'] = array(
 			'label-message' => 'hsts-beta-feature-message',
@@ -163,25 +167,29 @@ class HSTSExtension {
 	/**
 	 * Add the STS header
 	 *
-	 * @var Output $output Output object
-	 * @return true
+	 * @var OutputPage $output Output page object
+	 * @return bool true
 	 */
-	static function addHeader( $output ) {
-
+	public static function addHeader( $output ) {
 		global $wgHSTSForAnons, $wgHSTSForUsers, $wgHSTSIncludeSubdomains, $wgHSTSMaxAge;
 
 		// Check if the user will get STS header
-		if( $output->getRequest()->detectProtocol() !== 'https' ) return true;
-		if( $output->getUser()->isAnon() && !$wgHSTSForAnons ) return true;
-		if( $output->getUser()->isLoggedIn() && !$wgHSTSForUsers && !$output->getUser()->getOption('hsts') ) return true;
+		if(
+			$output->getRequest()->detectProtocol() !== 'https'
+			|| ( $output->getUser()->isAnon() && !$wgHSTSForAnons )
+			|| ( $output->getUser()->isLoggedIn() && !$wgHSTSForUsers && !$output->getUser()->getOption( 'hsts' ) )
+		) {
+			return true;
+		}
 
 		// Compute the max-age property
-		$maxage = 0;
-		if( is_int( $wgHSTSMaxAge ) ) $maxage = max( $wgHSTSMaxAge, 0 );
-		else {
+		if( is_int( $wgHSTSMaxAge ) ) {
+			$maxage = max( $wgHSTSMaxAge, 0 );
+		} else {
 			$maxage = wfTimestamp( TS_UNIX, $wgHSTSMaxAge );
-			if( $maxage !== false ) $maxage -= wfTimestamp();
-			else {
+			if( $maxage !== false ) {
+				$maxage -= wfTimestamp();
+			} else {
 				wfDebug( '[HSTS] Bad value of the parameter $wgHSTSMaxAge: must be an integer or a date.' );
 				return true;
 			}
@@ -191,9 +199,11 @@ class HSTSExtension {
 			}
 		}
 
+		$header = 'Strict-Transport-Security: max-age=' . $maxage .
+			( $wgHSTSIncludeSubdomains ? '; includeSubDomains' : '' );
 		// Output the header
-		$output->getRequest()->response()->header( 'Strict-Transport-Security: max-age='.$maxage.($wgHSTSIncludeSubdomains?'; includeSubDomains':'') );
-		wfDebug( '[HSTS] Strict-Transport-Security: max-age='.$maxage.($wgHSTSIncludeSubdomains?'; includeSubDomains':'') );
+		$output->getRequest()->response()->header( $header );
+		wfDebug( '[HSTS] ' . $header );
 
 		return true;
 	}
