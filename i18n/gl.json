@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Toliño",
-			"Banjo"
+			"Banjo",
+			"Elisardojm"
 		]
 	},
 	"hsts-desc": "Mecanismo HSTS (HTTP Strict Transport Security) activable a nivel de cada usuario",
 	"hsts-tog": "Activar o mecanismo HTTP Strict Transport Security (HSTS)",
+	"hsts-https-tog": "Active o HTTP Strict Transport Security (HSTS)<br />Recargue esta páxina con HTTPS para cambiar esta preferencia.",
 	"hsts-beta-feature-message": "Empregar sempre unha conexión segura"
 }
