@@ -77,8 +77,9 @@ $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'HSTS',
 	'author' => 'Seb35',
-	'version' => '1.1.0',
+	'version' => '1.1.1',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:HSTS',
+	'license-name' => 'WTFPL',
 	'descriptionmsg' => 'hsts-desc',
 );
 
