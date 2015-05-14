@@ -86,7 +86,6 @@ $wgExtensionCredits['other'][] = array(
 $wgAutoloadClasses['HSTSExtension'] = __DIR__ . '/HSTS.php';
 
 $wgMessagesDirs['HSTS'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['HSTS'] = __DIR__ . '/HSTS.i18n.php';
 
 $wgHooks['GetPreferences'][] = 'HSTSExtension::getPreferences';
 $wgHooks['GetBetaFeaturePreferences'][] = 'HSTSExtension::getBetaFeaturePreferences';
