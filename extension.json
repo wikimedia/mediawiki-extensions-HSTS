@@ -34,5 +34,6 @@
 		"HSTSMaxAge": 2592000,
 		"HSTSIncludeSubdomains": false,
 		"HSTSBetaFeature": false
-	}
+	},
+	"manifest_version": 1
 }
