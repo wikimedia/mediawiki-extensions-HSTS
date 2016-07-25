@@ -13,7 +13,7 @@ class HSTSExtension {
 		global $wgHSTSBetaFeature, $wgHSTSForUsers;
 
 		// If HSTS is activated as a Beta Feature, do not add it here
-		if( AutoLoader::loadClass( 'BetaFeatures' ) && $wgHSTSBetaFeature ) {
+		if( $wgHSTSBetaFeature && class_exists( 'BetaFeatures' ) ) {
 			return true;
 		}
 
