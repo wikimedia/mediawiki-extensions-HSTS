@@ -4,5 +4,6 @@
 			"Red Winged Duck"
 		]
 	},
-	"hsts-desc": "HSTS (HTTP Strict Transport Security) на ўзроўні ўдзельніка"
+	"hsts-desc": "HSTS (HTTP Strict Transport Security) на ўзроўні ўдзельніка",
+	"hsts-tog": "Уключыць HTTP Strict Transport Security (HSTS)"
 }
