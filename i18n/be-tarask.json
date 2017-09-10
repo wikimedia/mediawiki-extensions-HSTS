@@ -5,5 +5,6 @@
 		]
 	},
 	"hsts-desc": "HSTS (HTTP Strict Transport Security) на ўзроўні ўдзельніка",
-	"hsts-tog": "Уключыць HTTP Strict Transport Security (HSTS)"
+	"hsts-tog": "Уключыць HTTP Strict Transport Security (HSTS)",
+	"hsts-https-tog": "Уключыць HTTP Strict Transport Security (HSTS)<br />Перазагрузіце гэтую старонку з дапамогай HTTPS, каб зьмяніць гэтую наладу."
 }
