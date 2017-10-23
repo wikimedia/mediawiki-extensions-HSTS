@@ -6,5 +6,6 @@
 	},
 	"hsts-desc": "HSTS (HTTP Securezze de Trasporte Strette) sus a 'nu punde base de utende",
 	"hsts-tog": "Abbilite HQQQP Securezze de Trasporte Strette (HSTS)",
+	"hsts-https-tog": "Abbilite HTTP Strict Transport Security (HSTS)<br />Recareche sta pàgene cu HTTPS pe cangià sta preferenze.",
 	"hsts-beta-feature-message": "Ause sembre 'na connessione secure"
 }
