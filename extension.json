@@ -18,15 +18,9 @@
 		"HSTSExtension": "HSTS.hooks.php"
 	},
 	"Hooks": {
-		"GetPreferences": [
-			"HSTSExtension::getPreferences"
-		],
-		"GetBetaFeaturePreferences": [
-			"HSTSExtension::getBetaFeaturePreferences"
-		],
-		"BeforePageDisplay": [
-			"HSTSExtension::addHeader"
-		]
+		"GetPreferences": "HSTSExtension::getPreferences",
+		"GetBetaFeaturePreferences": "HSTSExtension::getBetaFeaturePreferences",
+		"BeforePageDisplay": "HSTSExtension::addHeader"
 	},
 	"config": {
 		"HSTSForAnons": false,
