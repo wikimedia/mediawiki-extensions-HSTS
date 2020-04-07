@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand",
 			"Esketti",
-			"Sjoerddebruin",
+			"Mainframe98",
 			"Mar(c)",
-			"Mainframe98"
+			"Siebrand",
+			"Sjoerddebruin"
 		]
 	},
 	"hsts-desc": "HSTS (HTTP Strict Transport Security) per gebruiker",

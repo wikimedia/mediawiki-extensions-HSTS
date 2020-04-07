@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Otokoume",
 			"Shirayuki",
-			"SkyDaisy9",
-			"Otokoume"
+			"SkyDaisy9"
 		]
 	},
 	"hsts-desc": "HSTS (HTTP Strict Transport Security) を、利用者の個人設定に応じて有効にする",

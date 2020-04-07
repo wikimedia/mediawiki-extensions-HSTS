@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Skalman",
-			"Lokal Profil"
+			"Lokal Profil",
+			"Skalman"
 		]
 	},
 	"hsts-desc": "HSTS (HTTP Strict Transport Security) på en per-användare-basis",

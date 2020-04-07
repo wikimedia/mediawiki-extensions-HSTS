@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16",
-			"Baffo"
+			"Baffo",
+			"Beta16"
 		]
 	},
 	"hsts-desc": "HSTS (HTTP Strict Transport Security) per singolo utente",

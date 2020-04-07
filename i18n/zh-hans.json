@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Qiyue2001",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Qiyue2001"
 		]
 	},
 	"hsts-desc": "根据个人设置启用HSTS（HTTP 严格传输安全）",

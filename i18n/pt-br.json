@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fúlvio",
-			"!Silent"
+			"!Silent",
+			"Fúlvio"
 		]
 	},
 	"hsts-desc": "HSTS (HTTP Strict Transport Security) em uma base por usuário",

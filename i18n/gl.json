@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño",
 			"Banjo",
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"hsts-desc": "Mecanismo HSTS (HTTP Strict Transport Security) activable a nivel de cada usuario",
