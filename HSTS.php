@@ -9,7 +9,7 @@
  * @file
  * @ingroup Extensions
  * @author Seb35
- * @licence WTFPL 2.0
+ * @license WTFPL
  */
 
 if ( function_exists( 'wfLoadExtension' ) ) {

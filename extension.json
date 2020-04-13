@@ -15,7 +15,7 @@
 		]
 	},
 	"AutoloadClasses": {
-		"HSTSExtension": "HSTS.hooks.php"
+		"HSTSExtension": "HSTSExtension.php"
 	},
 	"Hooks": {
 		"GetPreferences": "HSTSExtension::getPreferences",
