@@ -84,7 +84,7 @@ class HSTSExtension {
 		if (
 			$output->getRequest()->detectProtocol() !== 'https'
 			|| ( $output->getUser()->isAnon() && !$wgHSTSForAnons )
-			|| ( $output->getUser()->isLoggedIn() && !$wgHSTSForUsers && !$output->getUser()->getOption( 'hsts' ) )
+			|| ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$output->getUser()->getOption( 'hsts' ) )
 		) {
 			return true;
 		}
