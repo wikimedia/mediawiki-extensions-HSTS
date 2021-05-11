@@ -6,6 +6,9 @@
 	"descriptionmsg": "hsts-desc",
 	"license-name": "WTFPL",
 	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.34.0"
+	},
 	"DefaultUserOptions": {
 		"hsts": 0
 	},
