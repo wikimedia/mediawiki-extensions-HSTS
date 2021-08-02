@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Andriykopanytsia"
+			"Andriykopanytsia",
+			"DDPAT"
 		]
 	},
-	"hsts-desc": "HSTS (HTTP Строга Безпека Передачі) на рівні користувача",
+	"hsts-desc": "HSTS (HTTP Сувора безпека транспорту) для кожного користувача",
 	"hsts-tog": "Увімкнути HTTP строгу безпеку передачі (HSTS)",
 	"hsts-https-tog": "Увімкнути HTTP Strict Transport Security (HSTS)<br />Перезавантажте цю сторінку з допомогою протоколу HTTPS, щоб змінити цю установку.",
 	"hsts-beta-feature-message": "Завжди використовувати безпечне з'єднання",
