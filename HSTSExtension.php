@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class HSTSExtension {
 
 	/**
@@ -84,9 +86,21 @@ class HSTSExtension {
 		if (
 			$output->getRequest()->detectProtocol() !== 'https'
 			|| ( $output->getUser()->isAnon() && !$wgHSTSForAnons )
-			|| ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$output->getUser()->getOption( 'hsts' ) )
 		) {
 			return true;
+		}
+
+		// MW 1.35+
+		if ( class_exists( 'UserOptionsLookup' ) ) {
+			$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+			if ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$userOptionsLookup->getOption( $output->getUser(), 'hsts' ) ) {
+				return true;
+			}
+		} else {
+			// @phan-suppress-next-line PhanDeprecatedFunction Backward-compatibility MW 1.34-
+			if ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$output->getUser()->getOption( 'hsts' ) ) {
+				return true;
+			}
 		}
 
 		// Compute the max-age property
