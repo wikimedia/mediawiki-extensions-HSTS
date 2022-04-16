@@ -97,7 +97,6 @@ class HSTSExtension {
 				return true;
 			}
 		} else {
-			// @phan-suppress-next-line PhanDeprecatedFunction Backward-compatibility MW 1.34-
 			if ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$output->getUser()->getOption( 'hsts' ) ) {
 				return true;
 			}
