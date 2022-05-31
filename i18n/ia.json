@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"hsts-desc": "HSTS (HTTP Strict Transport Security) configurabile per usator",
+	"hsts-tog": "Activar HTTP Strict Transport Security (HSTS)",
+	"hsts-https-tog": "Activar HTTP Strict Transport Security (HSTS)<br />Recarga iste pagina con HTTPS pro cambiar iste preferentia.",
+	"hsts-beta-feature-message": "Sempre usar un connexion secur",
+	"hsts-beta-feature-description": "Isto reinfortia tu securitate sur iste sito web mantenente te secur mesmo post que tu claude le session, e assecura que necuno pote spiar te durante que tu naviga. Con iste option activate e un navigator que supporta iste technologia (HSTS), omne alerta de securitate representa probabilemente un ver attacco contra te."
+}
