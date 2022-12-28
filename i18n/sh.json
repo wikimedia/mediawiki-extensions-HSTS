@@ -4,5 +4,6 @@
 			"Vlad5250"
 		]
 	},
-	"hsts-beta-feature-message": "Uvijek koristi sigurnu konekciju"
+	"hsts-beta-feature-message": "Uvijek koristi sigurnu konekciju",
+	"hsts-beta-feature-description": "Ovo pojačava vašu sigurnost na ovom web sajtu, tako što vas čuva čak i nakon što se odjavite, i osigurava da vas nitko ne može špijunirati što pregledavate. Ako ova opcija je aktivirana i vaš preglednik podržava ovu tehnologiju (HSTS), svako sigurnosno upozorenje vrlo je vjerojatno pravi napad na vas."
 }
