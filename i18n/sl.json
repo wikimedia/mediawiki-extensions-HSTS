@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"hsts-desc": "HSTS (HTTP Strict Transport Security) na ravni posameznega uporabnika",
+	"hsts-tog": "Omogoči HTTP Strict Transport Security (HSTS)",
+	"hsts-https-tog": "Omogoči HTTP Strict Transport Security (HSTS)<br />Da spremenite to nastavitev, to stran znova naložite s HTTPS.",
+	"hsts-beta-feature-message": "Vedno uporabi varno povezavo",
+	"hsts-beta-feature-description": "To krepi vašo varnost na tem spletnem mestu, tako da ste varni tudi po tem, ko se odjavite, in zagotavlja, da nihče ne more vohuniti za vami med brskanjem. Ob aktivaciji te možnosti in najnovejšem brskalniku, ki podpira to tehnologijo (HSTS), je vsako varnostno opozorilo zelo verjetno pravi napad na vas."
+}
