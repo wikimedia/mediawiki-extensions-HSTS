@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"hsts-beta-feature-message": "Visada naudoti saugų ryšį",
+	"hsts-beta-feature-description": "Tai sustiprina jūsų saugumą šioje svetainėje, nes apsaugo jus net atsijungus, ir užtikrina, kad niekas negalės jūsų šnipinėti naršant. Suaktyvinus šią parinktį ir turint naują naršyklę, palaikančią šią technologiją (HSTS), bet koks saugos įspėjimas greičiausiai yra tikra ataka prieš jus."
+}
