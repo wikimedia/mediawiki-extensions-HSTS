@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\HSTS;
 
+use Config;
 use ExtensionRegistry;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
@@ -14,15 +15,21 @@ class Hooks implements
 	GetPreferencesHook,
 	BeforePageDisplayHook
 {
+	/** @var Config */
+	private $config;
+
 	/** @var UserOptionsLookup */
 	private $userOptionsLookup;
 
 	/**
+	 * @param Config $config
 	 * @param UserOptionsLookup $userOptionsLookup
 	 */
 	public function __construct(
+		Config $config,
 		UserOptionsLookup $userOptionsLookup
 	) {
+		$this->config = $config;
 		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
@@ -34,15 +41,16 @@ class Hooks implements
 	 * @return bool|void True or no return value to continue or false to abort
 	 */
 	public function onGetPreferences( $user, &$preferences ) {
-		global $wgHSTSBetaFeature, $wgHSTSForUsers;
-
 		// If HSTS is activated as a Beta Feature, do not add it here
-		if ( $wgHSTSBetaFeature && ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' ) ) {
+		if (
+			$this->config->get( 'HSTSBetaFeature' ) &&
+			ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' )
+		) {
 			return;
 		}
 
 		// If HSTS is mandatory, do not display the choice
-		if ( $wgHSTSForUsers ) {
+		if ( $this->config->get( 'HSTSForUsers' ) ) {
 			return;
 		}
 
@@ -70,15 +78,13 @@ class Hooks implements
 	 * @todo Add a screenshot (a padlock?)
 	 */
 	public function onGetBetaFeaturePreferences( $user, &$preferences ) {
-		global $wgHSTSBetaFeature, $wgHSTSForUsers;
-
 		// If HSTS is activated as a Beta Feature, do not add it here
-		if ( !$wgHSTSBetaFeature ) {
+		if ( !$this->config->get( 'HSTSBetaFeature' ) ) {
 			return;
 		}
 
 		// If HSTS is mandatory, do not display the choice
-		if ( $wgHSTSForUsers ) {
+		if ( $this->config->get( 'HSTSForUsers' ) ) {
 			return;
 		}
 
@@ -99,29 +105,28 @@ class Hooks implements
 	 * @return void This hook must not abort, it must return no value
 	 */
 	public function onBeforePageDisplay( $output, $skin ): void {
-		global $wgHSTSForAnons, $wgHSTSForUsers, $wgHSTSIncludeSubdomains, $wgHSTSMaxAge;
-
 		// Check if the user will get STS header
 		if (
 			$output->getRequest()->detectProtocol() !== 'https'
-			|| ( $output->getUser()->isAnon() && !$wgHSTSForAnons )
+			|| ( $output->getUser()->isAnon() && !$this->config->get( 'HSTSForAnons' ) )
 		) {
 			return;
 		}
 
 		if (
 			$output->getUser()->isRegistered() &&
-			!$wgHSTSForUsers &&
+			!$this->config->get( 'HSTSForUsers' ) &&
 			!$this->userOptionsLookup->getOption( $output->getUser(), 'hsts' )
 		) {
 			return;
 		}
 
 		// Compute the max-age property
-		if ( is_int( $wgHSTSMaxAge ) ) {
-			$maxage = max( $wgHSTSMaxAge, 0 );
+		$maxage = $this->config->get( 'HSTSMaxAge' );
+		if ( is_int( $maxage ) ) {
+			$maxage = max( $maxage, 0 );
 		} else {
-			$maxage = wfTimestamp( TS_UNIX, $wgHSTSMaxAge );
+			$maxage = wfTimestamp( TS_UNIX, $maxage );
 			if ( $maxage !== false ) {
 				$maxage -= wfTimestamp();
 			} else {
@@ -135,7 +140,7 @@ class Hooks implements
 		}
 
 		$header = 'Strict-Transport-Security: max-age=' . $maxage .
-			( $wgHSTSIncludeSubdomains ? '; includeSubDomains' : '' );
+			( $this->config->get( 'HSTSIncludeSubdomains' ) ? '; includeSubDomains' : '' );
 		// Output the header
 		$output->getRequest()->response()->header( $header );
 		wfDebug( '[HSTS] ' . $header );
