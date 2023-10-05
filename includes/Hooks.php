@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\HSTS;
 
 use ExtensionRegistry;
 use MediaWiki\Hook\BeforePageDisplayHook;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\User\UserOptionsLookup;
 use OutputPage;
 use Skin;
 use User;
@@ -14,6 +14,17 @@ class Hooks implements
 	GetPreferencesHook,
 	BeforePageDisplayHook
 {
+	/** @var UserOptionsLookup */
+	private $userOptionsLookup;
+
+	/**
+	 * @param UserOptionsLookup $userOptionsLookup
+	 */
+	public function __construct(
+		UserOptionsLookup $userOptionsLookup
+	) {
+		$this->userOptionsLookup = $userOptionsLookup;
+	}
 
 	/**
 	 * Add the HSTS preference
@@ -98,8 +109,11 @@ class Hooks implements
 			return;
 		}
 
-		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
-		if ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$userOptionsLookup->getOption( $output->getUser(), 'hsts' ) ) {
+		if (
+			$output->getUser()->isRegistered() &&
+			!$wgHSTSForUsers &&
+			!$this->userOptionsLookup->getOption( $output->getUser(), 'hsts' )
+		) {
 			return;
 		}
 
