@@ -90,16 +90,9 @@ class HSTSExtension {
 			return true;
 		}
 
-		// MW 1.35+
-		if ( class_exists( 'UserOptionsLookup' ) ) {
-			$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
-			if ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$userOptionsLookup->getOption( $output->getUser(), 'hsts' ) ) {
-				return true;
-			}
-		} else {
-			if ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$output->getUser()->getOption( 'hsts' ) ) {
-				return true;
-			}
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		if ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$userOptionsLookup->getOption( $output->getUser(), 'hsts' ) ) {
+			return true;
 		}
 
 		// Compute the max-age property

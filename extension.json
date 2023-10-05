@@ -7,7 +7,7 @@
 	"license-name": "WTFPL",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.34.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"DefaultUserOptions": {
 		"hsts": 0
