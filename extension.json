@@ -21,9 +21,16 @@
 		"MediaWiki\\Extension\\HSTS\\": "includes/"
 	},
 	"Hooks": {
-		"GetPreferences": "MediaWiki\\Extension\\HSTS\\Hooks::getPreferences",
-		"GetBetaFeaturePreferences": "MediaWiki\\Extension\\HSTS\\Hooks::getBetaFeaturePreferences",
-		"BeforePageDisplay": "MediaWiki\\Extension\\HSTS\\Hooks::addHeader"
+		"GetPreferences": "main",
+		"GetBetaFeaturePreferences": "main",
+		"BeforePageDisplay": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\HSTS\\Hooks",
+			"services": [
+			]
+		}
 	},
 	"config": {
 		"HSTSForAnons": false,

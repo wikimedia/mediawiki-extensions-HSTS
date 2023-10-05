@@ -3,30 +3,36 @@
 namespace MediaWiki\Extension\HSTS;
 
 use ExtensionRegistry;
+use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use OutputPage;
+use Skin;
 use User;
 
-class Hooks {
+class Hooks implements
+	GetPreferencesHook,
+	BeforePageDisplayHook
+{
 
 	/**
 	 * Add the HSTS preference
 	 *
 	 * @param User $user Current user
 	 * @param array &$preferences Description of the preferences
-	 * @return bool true
+	 * @return bool|void True or no return value to continue or false to abort
 	 */
-	public static function getPreferences( $user, &$preferences ) {
+	public function onGetPreferences( $user, &$preferences ) {
 		global $wgHSTSBetaFeature, $wgHSTSForUsers;
 
 		// If HSTS is activated as a Beta Feature, do not add it here
 		if ( $wgHSTSBetaFeature && ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' ) ) {
-			return true;
+			return;
 		}
 
 		// If HSTS is mandatory, do not display the choice
 		if ( $wgHSTSForUsers ) {
-			return true;
+			return;
 		}
 
 		// Add the checkbox in the 'basic informations' section
@@ -41,8 +47,6 @@ class Hooks {
 			$preferences['hsts']['label-message'] = 'hsts-https-tog';
 			$preferences['hsts']['disabled'] = true;
 		}
-
-		return true;
 	}
 
 	/**
@@ -50,21 +54,21 @@ class Hooks {
 	 *
 	 * @param User $user Current user
 	 * @param array &$preferences Description of the Beta Features
-	 * @return bool true
+	 * @return bool|void True or no return value to continue or false to abort
 	 *
 	 * @todo Add a screenshot (a padlock?)
 	 */
-	public static function getBetaFeaturePreferences( $user, &$preferences ) {
+	public function onGetBetaFeaturePreferences( $user, &$preferences ) {
 		global $wgHSTSBetaFeature, $wgHSTSForUsers;
 
 		// If HSTS is activated as a Beta Feature, do not add it here
 		if ( !$wgHSTSBetaFeature ) {
-			return true;
+			return;
 		}
 
 		// If HSTS is mandatory, do not display the choice
 		if ( $wgHSTSForUsers ) {
-			return true;
+			return;
 		}
 
 		$preferences['hsts'] = [
@@ -74,17 +78,16 @@ class Hooks {
 			'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:HSTS',
 			'requirements' => [ 'betafeatures' => [ 'prefershttps' ] ]
 		];
-
-		return true;
 	}
 
 	/**
 	 * Add the STS header
 	 *
 	 * @param OutputPage $output Output page object
-	 * @return bool true
+	 * @param Skin $skin
+	 * @return void This hook must not abort, it must return no value
 	 */
-	public static function addHeader( $output ) {
+	public function onBeforePageDisplay( $output, $skin ): void {
 		global $wgHSTSForAnons, $wgHSTSForUsers, $wgHSTSIncludeSubdomains, $wgHSTSMaxAge;
 
 		// Check if the user will get STS header
@@ -92,12 +95,12 @@ class Hooks {
 			$output->getRequest()->detectProtocol() !== 'https'
 			|| ( $output->getUser()->isAnon() && !$wgHSTSForAnons )
 		) {
-			return true;
+			return;
 		}
 
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		if ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$userOptionsLookup->getOption( $output->getUser(), 'hsts' ) ) {
-			return true;
+			return;
 		}
 
 		// Compute the max-age property
@@ -109,11 +112,11 @@ class Hooks {
 				$maxage -= wfTimestamp();
 			} else {
 				wfDebug( '[HSTS] Bad value of the parameter $wgHSTSMaxAge: must be an integer or a date.' );
-				return true;
+				return;
 			}
 			if ( $maxage < 0 ) {
 				wfDebug( '[HSTS] Expired date; HSTS has been lost for all users, apart if externally added in the server configuration.' );
-				return true;
+				return;
 			}
 		}
 
@@ -122,7 +125,5 @@ class Hooks {
 		// Output the header
 		$output->getRequest()->response()->header( $header );
 		wfDebug( '[HSTS] ' . $header );
-
-		return true;
 	}
 }
