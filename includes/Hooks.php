@@ -1,8 +1,13 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
+namespace MediaWiki\Extension\HSTS;
 
-class HSTSExtension {
+use ExtensionRegistry;
+use MediaWiki\MediaWikiServices;
+use OutputPage;
+use User;
+
+class Hooks {
 
 	/**
 	 * Add the HSTS preference

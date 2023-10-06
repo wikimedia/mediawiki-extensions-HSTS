@@ -17,13 +17,13 @@
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"HSTSExtension": "HSTSExtension.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\HSTS\\": "includes/"
 	},
 	"Hooks": {
-		"GetPreferences": "HSTSExtension::getPreferences",
-		"GetBetaFeaturePreferences": "HSTSExtension::getBetaFeaturePreferences",
-		"BeforePageDisplay": "HSTSExtension::addHeader"
+		"GetPreferences": "MediaWiki\\Extension\\HSTS\\Hooks::getPreferences",
+		"GetBetaFeaturePreferences": "MediaWiki\\Extension\\HSTS\\Hooks::getBetaFeaturePreferences",
+		"BeforePageDisplay": "MediaWiki\\Extension\\HSTS\\Hooks::addHeader"
 	},
 	"config": {
 		"HSTSForAnons": false,
