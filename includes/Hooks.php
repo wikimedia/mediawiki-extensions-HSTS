@@ -2,14 +2,14 @@
 
 namespace MediaWiki\Extension\HSTS;
 
-use Config;
 use ExtensionRegistry;
+use MediaWiki\Config\Config;
 use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
-use MediaWiki\User\UserOptionsLookup;
-use OutputPage;
+use MediaWiki\User\Options\UserOptionsLookup;
+use MediaWiki\User\User;
 use Skin;
-use User;
 
 class Hooks implements
 	GetPreferencesHook,
