@@ -91,7 +91,7 @@ class HSTSExtension {
 		}
 
 		// MW 1.35+
-		if ( class_exists( 'UserOptionsLookup' ) ) {
+		if ( class_exists( 'MediaWiki\User\UserOptionsLookup' ) ) {
 			$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 			if ( $output->getUser()->isRegistered() && !$wgHSTSForUsers && !$userOptionsLookup->getOption( $output->getUser(), 'hsts' ) ) {
 				return true;
