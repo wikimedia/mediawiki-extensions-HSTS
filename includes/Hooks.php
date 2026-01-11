@@ -15,22 +15,10 @@ class Hooks implements
 	GetPreferencesHook,
 	BeforePageDisplayHook
 {
-	/** @var Config */
-	private $config;
-
-	/** @var UserOptionsLookup */
-	private $userOptionsLookup;
-
-	/**
-	 * @param Config $config
-	 * @param UserOptionsLookup $userOptionsLookup
-	 */
 	public function __construct(
-		Config $config,
-		UserOptionsLookup $userOptionsLookup
+		private readonly Config $config,
+		private readonly UserOptionsLookup $userOptionsLookup,
 	) {
-		$this->config = $config;
-		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**
