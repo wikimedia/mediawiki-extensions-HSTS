@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\HSTS;
 
-use ExtensionRegistry;
 use MediaWiki\Config\Config;
-use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
 use Skin;
