@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"hsts-desc": "HSTS (HTTP Strict Transport Security) pre jednotlivých používateľov",
+	"hsts-tog": "Zapnúť HTTP Strict Transport Security (HSTS)",
+	"hsts-https-tog": "Zapnúť HTTP Strict Transport Security (HSTS)<br />Ak chcete túto predvoľbu zmeniť, načítajte túto stránku znova cez HTTPS.",
+	"hsts-beta-feature-message": "Vždy používať zabezpečené pripojenie",
+	"hsts-beta-feature-description": "Posilňuje to vašu bezpečnosť na tejto webovej stránke tým, že vás chráni aj po odhlásení, a zaručuje, že vás počas prehliadania nikto nemôže sledovať. S touto zapnutou možnosťou a novším prehliadačom podporujúcim túto technológiu (HSTS) je akékoľvek bezpečnostné upozornenie veľmi pravdepodobne skutočným útokom na vás."
+}
